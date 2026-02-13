@@ -1,0 +1,18 @@
+package com.example.parameterized;
+
+import org.junit.jupiter.api.extension.ExtensionContext;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.ArgumentsProvider;
+
+import java.util.List;
+import java.util.stream.Stream;
+
+public class FelineParameterized implements ArgumentsProvider {
+    @Override
+    public Stream<? extends Arguments> provideArguments(ExtensionContext context) {
+        return Stream.of(
+                Arguments.of("Травоядное", List.of("Трава", "Различные растения")),
+                Arguments.of("Хищник", List.of("Животные", "Птицы", "Рыба"))
+        );
+    }
+}
